@@ -69,14 +69,14 @@ class Content < ActiveRecord::Base
       (changed? && published?) || just_changed_published_status?
     end
   end
-  
+
   def shorten_url
     return unless self.published
-    
+
     r = Redirect.new
     r.from_path = r.shorten
     r.to_path = self.permalink_url
-    
+
     # This because updating self.redirects.first raises ActiveRecord::ReadOnlyRecord
     unless (red = self.redirects.first).nil?
       return if red.to_path == self.permalink_url
