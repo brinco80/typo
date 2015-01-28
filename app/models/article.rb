@@ -422,6 +422,7 @@ class Article < Content
 
     self.body = self.body + " " + new_article.body
     self.comments =  self.comments + new_article.comments
+    new_article.destroy
   end
 
   protected
