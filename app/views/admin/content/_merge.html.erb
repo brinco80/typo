@@ -1,5 +1,5 @@
 <label for="merge_with">Article ID</label>
 <input id="merge_with" name="article[merge_with]" size="30" type="text">
-<% if @article.user.admin? then %>
+<% if @article.user && @article.user.admin? then %>
 <input name="commit" type="submit" value="Merge">
 <% end %>
